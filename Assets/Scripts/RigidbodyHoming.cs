@@ -5,7 +5,7 @@ using UnityEngine;
 public class RigidbodyHoming : MonoBehaviour
 {
     public Transform TgtTransform;
-    public Rigidbody TgtRigidbody;
+    public Rigidbody HomingRigidbody;
 
     public float Speed; // 追従速度
     public float MaxForce; // 最大の力
@@ -22,7 +22,7 @@ public class RigidbodyHoming : MonoBehaviour
         Vector3 tgtPos = TgtTransform.position;
         Vector3 diffDir = (tgtPos - transform.position).normalized; // ターゲットの方向
         Vector3 tgtSpeed = diffDir * Speed;
-        Vector3 speedErr = tgtSpeed - TgtRigidbody.velocity;
+        Vector3 speedErr = tgtSpeed - HomingRigidbody.velocity;
         SpeedErrInteg += speedErr * dt;
         Vector3 prevSpeedErr = PresentSpeedErr;
         PresentSpeedErr = speedErr;
@@ -34,6 +34,6 @@ public class RigidbodyHoming : MonoBehaviour
             force = force / forceMagnitude * MaxForce; // 力を最大値にする
         }
 
-        TgtRigidbody.AddForce(force, ForceMode.Force);
+        HomingRigidbody.AddForce(force, ForceMode.Force);
     }
 }
