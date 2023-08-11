@@ -27,7 +27,7 @@ public class RigidbodyHoming : MonoBehaviour
         Vector3 prevSpeedErr = PresentSpeedErr;
         PresentSpeedErr = speedErr;
         Vector3 speedErrDiff = (PresentSpeedErr - prevSpeedErr) / dt;
-        Vector3 force = Kp * speedErr + Ki * SpeedErrInteg - Kd * speedErrDiff; // PID制御
+        Vector3 force = Kp * speedErr + Ki * SpeedErrInteg + Kd * speedErrDiff; // PID制御
         float forceMagnitude = force.magnitude;
         if (forceMagnitude > MaxForce)
         {

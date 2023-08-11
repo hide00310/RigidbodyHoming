@@ -408,7 +408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TgtTransform: {fileID: 1439690457}
-  TgtRigidbody: {fileID: 2005155740}
+  HomingRigidbody: {fileID: 2005155740}
   Speed: 2
   MaxForce: 1
   Kp: 1
